@@ -1,5 +1,7 @@
 import pytest
 from customer import Customer
+from coffee import Coffee
+from order import Order
 
 def test_customer_name_validation():
     with pytest.raises(TypeError):
@@ -9,12 +11,12 @@ def test_customer_name_validation():
     with pytest.raises(ValueError):
         Customer("A" * 16)
     customer = Customer("Joy")
-    assert customer.name =="Joy"
+    assert customer.name == "Joy"
 
 def test_customer_orders_and_coffees():
     customer = Customer("Liam")
-    coffee1 = Coffee("Mocha")
-    coffee2 = Coffee("Cortado")
+    coffee1 = Coffee("Latte")
+    coffee2 = Coffee("Espresso")
     order1 = Order(customer, coffee1, 5.0)
     order2 = Order(customer, coffee2, 3.0)
     assert len(customer.orders()) == 2
@@ -23,7 +25,7 @@ def test_customer_orders_and_coffees():
     assert coffee2 in customer.coffees()
 
 def test_create_order():
-    customer = Customer("Charlie")
+    customer = Customer("Brad")
     coffee = Coffee("Mocha")
     order = customer.create_order(coffee, 4.5)
     assert order.customer == customer
@@ -33,9 +35,9 @@ def test_create_order():
 def test_most_aficionado():
     coffee = Coffee("Cappuccino")
     assert Customer.most_aficionado(coffee) is None
-    customer1 = Customer("Dave")
-    customer2 = Customer("Eve")
+    customer1 = Customer("Prince")
+    customer2 = Customer("Ivy")
     Order(customer1, coffee, 5.0)
     Order(customer1, coffee, 5.0)
     Order(customer2, coffee, 3.0)
-    assert Customer.most-else
+    assert Customer.most_aficionado(coffee) == customer1

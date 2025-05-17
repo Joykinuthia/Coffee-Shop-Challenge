@@ -1,18 +1,20 @@
 import pytest
 from coffee import Coffee
+from customer import Customer
+from order import Order
 
 def test_coffee_name_validation():
     with pytest.raises(TypeError):
         Coffee(123)
     with pytest.raises(ValueError):
         Coffee("Ab")
-    coffee = Coffee("Espresso")
-    assert coffee.name == "Espresso"
+    coffee = Coffee("Americano")
+    assert coffee.name == "Americano"
     with pytest.raises(AttributeError):
-        coffee.name= "Mocha"
+        coffee.name = "Latte"
 
 def test_coffee_orders_and_customers():
-    coffee = Coffee("Mocha")
+    coffee = Coffee("Latte")
     customer1 = Customer("Joy")
     customer2 = Customer("Liam")
     order1 = Order(customer1, coffee, 5.0)
@@ -26,9 +28,8 @@ def test_num_orders_and_average_price():
     coffee = Coffee("Espresso")
     assert coffee.num_orders() == 0
     assert coffee.average_price() == 0
-    customer = Customer("Charlie")
+    customer = Customer("Brad")
     Order(customer, coffee, 3.0)
     Order(customer, coffee, 5.0)
     assert coffee.num_orders() == 2
     assert coffee.average_price() == 4.0
-
