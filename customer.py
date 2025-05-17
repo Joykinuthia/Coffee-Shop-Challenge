@@ -27,4 +27,17 @@ class Customer:
         if not isinstance(coffee, Coffee):
             raise TypeError("Coffee must be a Coffee instance")
         return Order(self, coffee, price)
+    
+    @classmethod
+    def most_aficionado(cls, coffee):
+        from coffee import Coffee
+        if not isinstance(coffee, Coffee):
+            raise TypeError("Coffee must be a Coffee instance")
+        if not coffee.orders():
+            return None
+        customer_spending = {}
+        for order in coffee.orders():
+            customer = order.customer
+            customer_spending[customer] = customer_spending.get(customer, 0) + order.price
+        return max(customer_spending, key=customer_spending.get)
         
