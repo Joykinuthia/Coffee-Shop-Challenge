@@ -2,6 +2,7 @@ class Coffee:
     def __init__(self, name):
         self.name = name
         self._name = None
+        self._orders = []
 
     @property
     def name(self):
