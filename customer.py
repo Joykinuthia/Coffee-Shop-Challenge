@@ -20,4 +20,11 @@ class Customer:
     
     def coffees(self):
         return list({order.coffee for order in self._orders})
+    
+    def create_order(self, coffee, price):
+        from coffee import Coffee
+        from order import Order
+        if not isinstance(coffee, Coffee):
+            raise TypeError("Coffee must be a Coffee instance")
+        return Order(self, coffee, price)
         
