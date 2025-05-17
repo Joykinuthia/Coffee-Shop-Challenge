@@ -22,3 +22,13 @@ def test_coffee_orders_and_customers():
     assert customer1 in coffee.customers()
     assert customer2 in coffee.customers()
 
+def test_num_orders_and_average_price():
+    coffee = Coffee("Espresso")
+    assert coffee.num_orders() == 0
+    assert coffee.average_price() == 0
+    customer = Customer("Charlie")
+    Order(customer, coffee, 3.0)
+    Order(customer, coffee, 5.0)
+    assert coffee.num_orders() == 2
+    assert coffee.average_price() == 4.0
+
