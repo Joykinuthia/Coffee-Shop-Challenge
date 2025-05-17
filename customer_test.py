@@ -13,7 +13,7 @@ def test_customer_name_validation():
 
 def test_customer_orders_and_coffees():
     customer = Customer("Liam")
-    coffee1 = Coffee("Americano")
+    coffee1 = Coffee("Mocha")
     coffee2 = Coffee("Cortado")
     order1 = Order(customer, coffee1, 5.0)
     order2 = Order(customer, coffee2, 3.0)
