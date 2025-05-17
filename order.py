@@ -12,3 +12,7 @@ class Order:
         self.price = price
         customer._orders.append(self)
         coffee._orders.append(self)
+
+    @property
+    def price(self):
+        return self._price
