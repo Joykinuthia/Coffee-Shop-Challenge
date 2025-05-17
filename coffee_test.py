@@ -10,3 +10,4 @@ def test_coffee_name_validation():
     assert coffee.name == "Espresso"
     with pytest.raises(AttributeError):
         coffee.name= "Mocha"
+

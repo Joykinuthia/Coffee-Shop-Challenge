@@ -17,4 +17,7 @@ class Coffee:
         if len(value) <3:
             raise ValueError("Name must be at least 3 characters")
         self._name = value
+
+    def orders(self):
+        return self._orders
         
