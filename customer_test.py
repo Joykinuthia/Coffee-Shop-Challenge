@@ -29,3 +29,13 @@ def test_create_order():
     assert order.customer == customer
     assert order.coffee == coffee
     assert order.price == 4.5
+
+def test_most_aficionado():
+    coffee = Coffee("Cappuccino")
+    assert Customer.most_aficionado(coffee) is None
+    customer1 = Customer("Dave")
+    customer2 = Customer("Eve")
+    Order(customer1, coffee, 5.0)
+    Order(customer1, coffee, 5.0)
+    Order(customer2, coffee, 3.0)
+    assert Customer.most-else
